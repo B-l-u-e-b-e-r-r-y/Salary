@@ -5,4 +5,4 @@ Salary for Achieve / jQuery
 <br>
 目前的版本是 jQuery 寫的，未來會以 Vue 重寫
 <br>
-<a href="">Demo</a>
+<a href="https://pclin2018.github.io/Salary/">Demo</a>
