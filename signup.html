@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>註冊</title>
+<link rel="Shortcut Icon" type="image/x-icon" href="https://upload.cc/i1/2018/04/04/8lH6gI.jpg" />
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<body>
+<style type="text/css">
+@charset "UTF-8";
+* {
+  font-family: 微軟正黑體;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body, html {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  background-color: #eee;
+}
+
+p, span {
+  margin: 0px;
+}
+
+.signup {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px 40px;
+  background-color: white;
+  border-radius: 8px;
+}
+.signup input, .signup button {
+  width: 20vw;
+  height: 40px;
+  padding: 0px 10px;
+}
+.signup input {
+  margin-bottom: 10px;
+  border: solid 1px #bbb;
+}
+.signup button {
+  background-color: white;
+  border: solid 1px #333;
+  color: #333;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-bottom: 20px
+}
+.signup button:hover {
+  background-color: #333;
+  color: white;
+}
+.signup a {
+  text-decoration: none;
+  color: red;
+  font-weight: 900;
+  transition: 0.3s;
+}
+.signup a:hover {
+  color: #b70000;
+}
+</style>
+
+<div class="signup">
+  <input id="signuser" type="text" name="username" placeholder="輸入家門名"/><br/>
+  <input id="signpw" type="password" name="password" placeholder="輸入密碼"/><br/>
+  <button onclick="singup()">註冊</button>
+  <br>
+  <span>已經有帳號？</span>
+  <a href="login.html">登入</a>
+</div>
+
+<script type="text/javascript">
+  function singup() {
+    var signuser = $('#signuser'),
+        signpw = $('#signpw');
+
+    var parameter = {};
+
+    // alert(signuser.val());
+
+    if(signuser.val() == "" || signpw.val() == ""){
+      alert("請輸入家門名和密碼！");
+    }
+
+    if(signuser.val() != "" && signpw.val() != ""){
+      parameter = {
+          signuser: signuser.val(),
+          signpw: signpw.val()
+      };
+
+      $.post('https://script.google.com/macros/s/AKfycbxQ3mzZnKPeD9E3gyTwyKRETnFs3CerYPhpg8mf8f8KTG_e_rWF/exec', parameter);
+
+      alert("註冊完成！");
+      window.location.href = 'login.html';
+    }
+  }
+</script>
+</body> 
+</html>

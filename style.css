@@ -1,0 +1,307 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: top;
+  text-align: center;
+  font-family: Noto Sans TC;
+  color: #222;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+body, .calabg::before {
+  background: url(img/bg.jpg) 0/cover fixed;
+}
+
+.calabg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: blur(10px);
+  margin: -30px;
+}
+
+.calabg {
+  width: 850px;
+  height: 615px;
+  top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.bar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 280px;
+  height: 40px;
+  background-image: linear-gradient(-90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 90%);
+  color: #fff;
+  text-align: right;
+  padding-right: 20px;
+  line-height: 40px;
+}
+
+.username, .logout {
+  font-size: 20px;
+  display: inline-block;
+}
+
+.username{
+  color: #fff;
+}
+
+.logout {
+  cursor: pointer;
+  color: #bbb;
+  margin-left: 15px;
+  transition-duration: 0.3s;
+}
+.logout:hover {
+  color: #eee;
+}
+
+.cala {
+  width: 850px;
+  top: 150px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(0%);
+  z-index: 1;
+}
+
+h1, h2, h3, h4, h5, p {
+  margin: 0px;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: -8px;
+}
+
+h2 {
+  font-size: 19px;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+h3 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: -8px;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+p {
+  font-size: 14px;
+}
+
+.top {
+  height: 65px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bottom {
+  font-size: 0px;
+  height: 550px;
+  overflow-y:hidden;
+}
+
+.left, .right {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  font-size: initial;
+}
+
+.search {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  left: 100%;
+  transform: translateX(-220%) translateY(-50%);
+  text-align: left;
+  width: 260px;
+  height: 40px;
+  border: solid 0px #fff;
+  border-radius: 40px;
+  font-size: 20px;
+  background: #fff url("http://www.davidpai.tw/wp-content/uploads/2012/04/search.gif") no-repeat 12px 12px;
+  padding: 0px 0px 0px 35px;
+}
+
+.l_top {
+  padding: 40px;
+  background-image: linear-gradient(0deg, rgba(0, 91, 234, 0.2) 0%, rgba(0, 198, 251, 0.4) 100%);
+}
+
+.l_bottom {
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.name, h1, h2 {
+  color: #fff;
+}
+
+.img {
+  width: 170px;
+  height: 170px;
+  display: inline-block;
+  border-radius: 100px;
+  background-image: url(img/black.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+
+.name {
+  font-size: 26px;
+  margin-top: 10px;
+}
+
+.hr {
+  display: inline-block;
+  text-align: center;
+  width: 60px;
+  margin-top: 5px;
+  margin-bottom: 40px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
+  /*border: solid 0px rgba(255, 255, 255, 0.5);*/
+}
+
+.infobar {
+  font-size: 0px;
+  /*position: 50px;*/
+}
+
+.rate, .level, .job, .live, .fight {
+  display: inline-block;
+}
+
+.attend{
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.level {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.live {
+  margin-right: 30px;
+}
+
+.right {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.cumoney {
+  padding: 50px 0px 30px 0px;
+}
+
+.cu {
+  font-size: 45px;
+  font-weight: 600;
+  margin-top: -15px;
+}
+
+.add {
+  width: 260px;
+  height: 35px;
+  border: solid 2px #ccc;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.add_submit{
+  display: inline-block;
+  font-size: 18px; 
+  width: 60px;
+  height: 35px;
+  border: solid 0px;
+  background-color: #eee; 
+  border: solid 2px #ccc;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.add_submit:hover {
+  background-color: #fff;
+}
+
+.error {
+  width: 320px;
+  height: 35px;
+  font-size: 18px;
+  background-color: #cc5555;
+  padding: 3px;
+  border: solid 0px;
+  margin-top: 10px;
+  color: #fff;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.error:hover {
+  background-color: #dd7e7e;
+}
+
+.nextmoney {
+  padding: 110px 0px 0px 0px;
+}
+
+.n1, .n2 {
+  color: #a02424;
+}
+
+.n1 {
+  font-size: 25px;
+}
+
+.n2 {
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: -10px;
+}
+
+.submit {
+  width: 320px;
+  height: 42px;
+  font-size: 20px;
+  font-weight: 300;
+  background-color: #222;
+  color: #fff;
+  padding: 3px;
+  border: solid 0px;
+  margin-top: 10px;
+  margin-bottom: 55px;
+  transition-duration: 0.3s;
+}
+.submit:hover {
+  background-color: #333;
+}

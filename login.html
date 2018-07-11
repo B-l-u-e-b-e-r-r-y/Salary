@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>登入</title>
+<link rel="Shortcut Icon" type="image/x-icon" href="https://upload.cc/i1/2018/04/04/8lH6gI.jpg" />
+</head>
+<style type="text/css">
+	@charset "UTF-8";
+	* {
+	  font-family: 微軟正黑體;
+	  box-sizing: border-box;
+	  font-size: 16px;
+	}
+
+	body, html {
+	  margin: 0px;
+	  padding: 0px;
+	}
+
+	html {
+	  background-color: #eee;
+	}
+
+	p, span {
+	  margin: 0px;
+	}
+
+	.login {
+	  position: absolute;
+	  text-align: center;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  padding: 40px 40px;
+	  background-color: white;
+	  border-radius: 8px;
+	}
+	.login input, .login button {
+	  width: 20vw;
+	  height: 40px;
+	  padding: 0px 10px;
+	}
+	.login input {
+	  margin-bottom: 10px;
+	  border: solid 1px #bbb;
+	}
+	.login button {
+	  background-color: white;
+	  border: solid 1px #333;
+	  color: #333;
+	  margin-bottom: 20px;
+	  transition: 0.3s;
+	  cursor: pointer;
+	}
+	.login button:hover {
+	  background-color: #333;
+	  color: white;
+	}
+	.login a {
+	  text-decoration: none;
+	  color: red;
+	  font-weight: 900;
+	  transition: 0.3s;
+	}
+	.login a:hover {
+	  color: #b70000;
+	}
+	.login .small {
+	  color: #aaa;
+	  font-size: 14px;
+	}
+</style>
+
+<div class="login">
+  <input id="username" type="text" name="username" placeholder="家門名"/><br/>
+  <input id="password" type="password" name="password" placeholder="密碼"/><br/>
+  <button onclick="login()">登入</button><br/><span>沒有帳號？隨便 </span><a href="signup.html">註冊</a><span> 一個玩玩</span>
+  <p class="small">預設家門名：aaa｜預設密碼：bbb</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	var username = $('#username'),
+		password = $('#password');
+
+	var parameter = {};
+
+	function login(){
+		var cuser = getCookie("username");
+		var cpassword = getCookie("password");
+
+		cuser = username.val();
+	    cpassword = password.val();
+
+		parameter = {
+	        username: username.val(),
+	        password: password.val()
+	    };
+
+	    $.post('https://script.google.com/macros/s/AKfycbxQ3mzZnKPeD9E3gyTwyKRETnFs3CerYPhpg8mf8f8KTG_e_rWF/exec', parameter, function(data) {
+	    	if(data == 0){
+	    		alert("家門名或密碼錯誤");
+	    		delCookie("username");
+	    	}else{
+		        delCookie("username");
+
+	          	if (cuser != "" && cuser != null){
+		            setCookie("username",cuser,30);
+		            setCookie("password",cpassword,30);
+	        	}
+				window.location.href='index.html';
+			}
+		});
+	}
+
+    function setCookie(cname,cvalue,exdays){
+	    var d = new Date();
+	    d.setTime(d.getTime()+(exdays*24*60*60*1000));
+	    var expires = "expires="+d.toGMTString();
+	    document.cookie = cname+"="+cvalue+"; "+expires;
+	}
+
+	function getCookie(cname){
+	    var name = cname + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i = 0; i < ca.length; i++) {
+	        var c = ca[i].trim();
+	        if (c.indexOf(name) == 0){
+	          return c.substring(name.length,c.length);
+	        }
+	    }
+	    return "";
+	}
+
+	function delCookie(name)
+	{
+	    var exp = new Date();
+	    exp.setTime(exp.getTime() - 1);
+	    var cval = getCookie(name);
+	    if(cval!=null){
+	    	document.cookie = name + "="+cval+";expires="+exp.toGMTString();
+	    }
+	}
+
+	function checkCookie(){
+	    var cuser = getCookie("username");
+	    var cpassword = getCookie("password");
+
+	    if (cuser != ""){
+	        username.val(cuser);
+	        password.val(cpassword);
+	        login();
+	    }
+	    else {
+	        // cuser = username.val();
+	        // cpassword = password.val();
+
+	        //   if (cuser != "" && cuser != null){
+	        //     setCookie("username",cuser,30);
+	        //     setCookie("password",cpassword,30);
+	        //     alert("setCookies");
+	        }
+	}
+
+	function dcookie(){
+		delCookie("username");
+	}
+
+
+</script>
+	
+<body onload="checkCookie()"></body>
+	
+</html>

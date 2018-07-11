@@ -1,0 +1,73 @@
+﻿<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Achieve - 薪水計算機 v1.0</title>
+    <link rel='stylesheet prefetch' href="https://fonts.googleapis.com/earlyaccess/notosanstc.css">
+    <link rel="Shortcut Icon" type="image/x-icon" href="img/icon.jpg" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body onload="checkCookie()">
+  <div class="bar">
+  <p class="username" id="showusername"></p>
+  <p class="logout" id="logout">登出</p>
+  </div>
+  <div class="cala">
+  <div class="top"> 
+    <input class="search" id="idname" placeholder="輸入家門名" onkeypress="search_name()">
+    <button id="sendBtn" style="display: none">查詢</button><br/>
+  </div>
+  <div class="bottom">
+    <div class="left">
+      <div class="l_top">
+        <div class="img" id="imgchange"></div>
+        <div class="name" id="showname">家門名</div>
+        <div class="hr"></div>
+        <div class="infobar">
+          <div class="rate">
+            <h1 id="showattend">0</h1><P class="attend">%</P><br/>
+            <h2>出席率</h2>
+          </div>
+          <div class="level">
+            <h1 id="showlevel" contenteditable="plaintext-only" onkeypress="showlevel.blur()">0</h1><br/>
+            <h2>等級</h2>
+          </div>
+          <div class="job">
+            <!-- <h1 id="showjob" contenteditable="plaintext-only" onkeypress="showjob.blur()">小黑</h1><br/> -->
+            <h1 id="showjob">小黑</h1><br/>
+            <h2>職業</h2>
+          </div>
+        </div>
+      </div>
+      <div class="l_bottom">
+        <div class="live">
+          <h4>生活薪水</h4><br/>
+          <h3 id="showmoneylife">$0</h3>
+        </div>
+        <div class="fight">
+          <h4>戰鬥薪水</h4><br/>
+          <h3 id="showmoneyfight">$0</h3>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="cumoney">
+        <h5>目前薪水</h5><br/>
+        <p class="cu" id="showmoneycu">$0</p>
+      </div>
+      <div class="add_area">
+        <input class="add" type="text" placeholder="輸入本次新增活動量" onkeypress="add_money()" id="addnum">
+        <button class="add_submit" onclick="add_money()">新增</button>
+      </div>
+      <button class="error" id="error">目前薪水錯誤，恢復上次續約薪水</button>
+      <div class="nextmoney">
+        <h5 class="n1">續約薪水</h5><br/>
+        <p class="n2" id="calamoney">$0</p>
+      </div>
+      <button class="submit" id="submitBtn">確認已續約</button>
+    </div>
+  </div>
+</div>
+<div class="calabg"></div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="main.js"></script>
